@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Result</title>
+    <style>
+        body {
+            background: url('static/Tempo.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'sans-serif';
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+        }
+
+        h1 {
+            color: #eedede;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: rgba(17, 16, 16, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .predicted-disease {
+            font-size: 40px;
+            color: #0044ff;
+            margin-top: 20px;
+        }
+
+        .cta-button,
+        .go-back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .cta-button:hover,
+        .go-back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .consult-doctor,
+        .you-are-fine {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .consult-doctor {
+            color: rgb(239, 237, 249);
+        }
+
+        .you-are-fine {
+            color:rgb(239, 237, 249);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <div class="result-box">
+            <p class="predicted-disease">{{ prediction }}</p>
+            {% if prediction == "  LIVER DISEASE" %}
+            <p class="consult-doctor">It is advisable to consult a doctor for further evaluation!</p>
+            {% elif prediction == "  NO LIVER DISEASE" %}
+            <p class="you-are-fine">You are fine! No signs of liver disease.</p>
+            {% endif %}
+            <a class="cta-button" href="/form">Try Again</a>
+            <a class="go-back-button" href="/">Go Back</a>
+        </div>
+    </div>
+</body>
+
+</html>
